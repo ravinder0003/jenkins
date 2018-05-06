@@ -44,6 +44,8 @@ wait
 echo -e ${cya}"OUT dir from your repo deleted"${txtrst};
 fi
 
+export BUILD_TYPE=nightly
+
 # Build ROM
 . build/envsetup.sh
 time brunch "$device"
