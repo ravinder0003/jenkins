@@ -48,4 +48,5 @@ export BUILD_TYPE=nightly
 
 # Build ROM
 . build/envsetup.sh
-time brunch "$device"
+lunch aicp_"$device"-userdebug
+make bacon -j8
