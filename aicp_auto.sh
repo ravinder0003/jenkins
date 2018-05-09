@@ -46,7 +46,7 @@ fi
 
 # Syncing AICP repo
 repo init -u https://github.com/AICP/platform_manifest.git -b o8.1
-repo sync -j8
+repo sync -f --force-sync --no-clone-bundle
 
 # Cloning trees, vendor and kernel
 git clone https://github.com/AICP-Tissot/vendor-xiaomi-tissot.git vendor/xiaomi
@@ -55,6 +55,6 @@ git clone https://github.com/AICP-Tissot/device-xiaomi-msm8953-common.git device
 git clone https://github.com/AICP-Tissot/device-xiaomi-tissot.git -b aicp device/xiaomi/tissot
 
 # Build ROM
-. build/envsetup.sh
+source build/envsetup.sh
 lunch aicp_"$device"-userdebug
 make bacon -j8
