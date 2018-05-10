@@ -13,7 +13,6 @@ repo sync -f --force-sync --no-clone-bundle -j8
 
 if [ "$use_ccache" = "yes" ];
 then
-echo -e ${blu}"CCACHE is enabled for this build"${txtrst}
 export USE_CCACHE=1
 export CCACHE_DIR=/home/ccache/$username
 prebuilts/misc/linux-x86/ccache/ccache -M 50G
@@ -26,7 +25,6 @@ ccache -C
 export USE_CCACHE=1
 prebuilts/misc/linux-x86/ccache/ccache -M 50G
 wait
-echo -e ${grn}"CCACHE Cleared"${txtrst};
 fi
 
 # Its Clean Time
@@ -34,10 +32,11 @@ if [ "$make_clean" = "yes" ];
 then
 make clean && make clobber
 wait
-echo -e ${cya}"OUT dir from your repo deleted"${txtrst};
 fi
 
 # Build ROM
 source build/envsetup.sh
 lunch aicp_"$device"-userdebug
 make bacon -j8
+
+gdrive upload out/target/product/$device/aicp_tissot_o-*.zip
