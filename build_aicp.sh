@@ -44,9 +44,7 @@ wait
 echo -e ${cya}"OUT dir from your repo deleted"${txtrst};
 fi
 
-export BUILD_TYPE=nightly
-
 # Build ROM
-. build/envsetup.sh
+source build/envsetup.sh
 lunch aicp_"$device"-userdebug
 make bacon -j8
