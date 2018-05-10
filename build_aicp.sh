@@ -6,15 +6,8 @@ use_ccache="$1"
 make_clean="$2"
 device="$3"
 
-# Colors makes things beautiful
-
-export TERM=xterm
-
-    red=$(tput setaf 1)             #  red
-    grn=$(tput setaf 2)             #  green
-    blu=$(tput setaf 4)             #  blue
-    cya=$(tput setaf 6)             #  cyan
-    txtrst=$(tput sgr0)             #  Reset
+# Force Sync Repo
+repo sync -f --force-sync --no-clone-bundle -j8
 
 # CCACHE UMMM!!! Cooks my builds fast
 
