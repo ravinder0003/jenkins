@@ -34,6 +34,8 @@ make clean && make clobber
 wait
 fi
 
+export BUILD_TYPE=Nightly
+
 # Build ROM
 source build/envsetup.sh
 lunch rr_"$device"-userdebug
