@@ -38,5 +38,3 @@ fi
 source build/envsetup.sh
 lunch aicp_"$device"-userdebug
 make bacon -j8
-
-gdrive upload out/target/product/$device/aicp_tissot_o-*.zip
