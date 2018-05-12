@@ -34,7 +34,10 @@ make clean && make clobber
 wait
 fi
 
-export BUILD_TYPE=Nightly
+# RR specific
+export days_to_log=1
+export WITH_ROOT_METHOD="rootless"
+export RR_BUILDTYPE=Unofficial
 
 # Build ROM
 source build/envsetup.sh
