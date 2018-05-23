@@ -2,8 +2,8 @@
 
 username=ravinder
 
-mkdir rr_test
-cd rr_test
+mkdir test_rr
+cd test_rr
 
 repo init -u https://github.com/ResurrectionRemix/platform_manifest.git -b oreo
 repo sync -f --force-sync --no-clone-bundle -j8
