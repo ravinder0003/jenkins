@@ -2,37 +2,22 @@
 
 username=ravinder
 
-use_ccache="$1"
-make_clean="$2"
-device="$3"
+device="$1"
 
 # Force Sync Repo
 repo sync -f --force-sync --no-clone-bundle -j8
 
-# CCACHE UMMM!!! Cooks my builds fast
+rm -rf vendor/xiaomi
+rm -rf kernel/xiaomi/msm8953
+rm -rf device/xiaomi/msm8953-common
+rm -rf device/xiaomi/tissot
 
-if [ "$use_ccache" = "yes" ];
-then
-export USE_CCACHE=1
-export CCACHE_DIR=/home/ccache/$username
-prebuilts/misc/linux-x86/ccache/ccache -M 50G
-fi
+git clone https://gitlab.com/ravinder0003/vendor-xiaomi-tissot.git vendor/xiaomi
+git clone https://gitlab.com/ravinder0003/device-xiaomi-msm8953-common.git device/xiaomi/msm8953-common
+git clone https://gitlab.com/ravinder0003/kernel_xiaomi_msm8953.git -b lineage-15.1_clang kernel/xiaomi/msm8953
+git clone https://gitlab.com/ravinder0003/device-xiaomi-tissot.git -b aicp device/xiaomi/tissot
 
-if [ "$use_ccache" = "clean" ];
-then
-export CCACHE_DIR=/home/ccache/$username
-ccache -C
-export USE_CCACHE=1
-prebuilts/misc/linux-x86/ccache/ccache -M 50G
-wait
-fi
-
-# Its Clean Time
-if [ "$make_clean" = "yes" ];
-then
 make clean && make clobber
-wait
-fi
 
 # Build ROM
 source build/envsetup.sh
