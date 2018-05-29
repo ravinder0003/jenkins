@@ -7,15 +7,13 @@ device="$1"
 # Force Sync Repo
 repo sync -f --force-sync --no-clone-bundle -j8
 
-rm -rf vendor/xiaomi
-rm -rf kernel/xiaomi/msm8953
-rm -rf device/xiaomi/msm8953-common
-rm -rf device/xiaomi/tissot
+rm -rf vendor/xiaomi/whyred
+rm -rf kernel/xiaomi/whyred
+rm -rf device/xiaomi/whyred
 
-git clone https://gitlab.com/ravinder0003/vendor-xiaomi-tissot.git vendor/xiaomi
-git clone https://gitlab.com/ravinder0003/device-xiaomi-msm8953-common.git device/xiaomi/msm8953-common
-git clone https://gitlab.com/ravinder0003/kernel_xiaomi_msm8953.git -b lineage-15.1_clang kernel/xiaomi/msm8953
-git clone https://gitlab.com/ravinder0003/device-xiaomi-tissot.git -b aicp device/xiaomi/tissot
+git clone https://github.com/shekhawat2/android_vendor_xiaomi_whyred.git -b o vendor/xiaomi/whyred
+git clone https://github.com/Whyred-Development/kernel_xiaomi_whyred.git kernel/xiaomi/whyred
+git clone https://github.com/ravinder0003/android_device_xiaomi_whyred.git -b cos device/xiaomi/whyred
 
 make clobber
 
