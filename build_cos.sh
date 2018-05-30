@@ -13,7 +13,7 @@ rm -rf device/xiaomi/whyred
 
 git clone https://github.com/shekhawat2/android_vendor_xiaomi_whyred.git -b o vendor/xiaomi/whyred
 git clone https://github.com/shekhawat2/android_kernel_xiaomi_whyred.git -b o kernel/xiaomi/whyred
-git clone https://github.com/ravinder0003/android_device_xiaomi_whyred.git -b cos device/xiaomi/whyred
+git clone https://gitlab.com/ravinder0003/device_xiaomi_whyred.git -b cos device/xiaomi/whyred
 
 # Build ROM
 . build/envsetup.sh
