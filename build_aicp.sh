@@ -18,6 +18,9 @@ git clone https://gitlab.com/ravinder0003/kernel_xiaomi_msm8953.git -b lineage-1
 git clone https://gitlab.com/ravinder0003/device-xiaomi-tissot.git -b aicp device/xiaomi/tissot
 
 make clean && make clobber
+export USE_CCACHE=1
+export CCACHE_DIR=/home/ccache/$username
+prebuilts/misc/linux-x86/ccache/ccache -M 50G
 
 # Build ROM
 source build/envsetup.sh
