@@ -4,10 +4,13 @@ username=ravinder
 
 device="$1"
 
-make clobber
+make clean && make clobber
+export USE_CCACHE=1
+export CCACHE_DIR=/home/ccache/$username
+prebuilts/misc/linux-x86/ccache/ccache -M 50G
 
 # Force Sync Repo
-#repo sync -f --force-sync --no-clone-bundle -j8
+repo sync -f --force-sync --no-clone-bundle -j8
 
 rm -rf vendor/xiaomi/whyred
 rm -rf kernel/xiaomi/whyred
