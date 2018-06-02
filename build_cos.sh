@@ -4,9 +4,10 @@ username=ravinder
 
 device="$1"
 
+make clobber
+
 # Force Sync Repo
-# repo sync -f --force-sync --no-clone-bundle -j8
-# make clobber
+#repo sync -f --force-sync --no-clone-bundle -j8
 
 rm -rf vendor/xiaomi/whyred
 rm -rf kernel/xiaomi/whyred
